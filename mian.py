@@ -7,14 +7,14 @@ def select_folder():
     folder_label.config(text="已选择的文件夹路径: " + folder_path)
 
 def process_files():
-    folder_path = folder_label.cget("text").split(": ")[1]
+    folder_path = folder_label.cget("text")。split(": ")[1]
     files_list = [file for file in os.listdir(folder_path) if file.endswith(".txt")]
 
     total_files = len(files_list)
     progress_bar['maximum'] = total_files
 
     for index, file in enumerate(files_list):
-        file_path = os.path.join(folder_path, file)
+        file_path = os.path。join(folder_path, file)
         output_file_path = file_path + ".temp"
 
         try:
@@ -34,7 +34,7 @@ def process_files():
             return
 
         progress_bar['value'] = index + 1
-        progress_label.config(text="正在处理文件 {}/{}".format(index + 1, total_files))
+        progress_label.config(text="正在处理文件 {}/{}"。format(index + 1, total_files))
 
     result_label.config(text="处理完成！")
 
